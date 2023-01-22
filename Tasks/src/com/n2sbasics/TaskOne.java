@@ -19,6 +19,9 @@ public class TaskOne {
 		//int result = fibonacci(fib);
 		//System.out.println(result);
 		
+		//error();
+		reverseString();
+		
 		
 	}
 	
@@ -175,6 +178,32 @@ public class TaskOne {
 		else {
 			return fibonacci(number - 1) + fibonacci(number - 2);
 		}
+	}
+	
+	public static void error() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter A Number (0-9): ");
+		int number = sc.nextInt();
+		try {
+			if (number > 9 || number < 0)
+				throw new NumberFormatException();
+		}
+		catch (NumberFormatException e) {
+			System.out.println("Enter Number Between 0 and 9");
+		}
+	}
+	
+	public static void reverseString() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter A String: ");
+		String string = sc.nextLine();
+		String newString = "";
+		
+		for(int i = string.length() - 1; i >= 0; i--) {
+			char temp = string.charAt(i);
+			newString += temp;
+			}
+		System.out.println(newString);
 	}
 	
 }
