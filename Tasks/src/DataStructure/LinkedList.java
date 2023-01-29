@@ -45,11 +45,11 @@ public class LinkedList {
 		return curr;
 	}
 	
+	//deletes the first element of the list
 	public Node deleteFirst() {
 		if (head == null) {
 			return null;
 		}
-		
 		if (head.next == null) {
 			return null;
 		}
@@ -59,6 +59,27 @@ public class LinkedList {
 		
 		return head;
 	}
+	
+	public void deleteValue(int value) {
+		
+		Node curr = head;
+		Node prev = null;
+		
+        if (curr != null && curr.data == value) {
+            head = curr.next;
+            return;
+        }
+ 
+        while (curr != null && curr.data != value) {
+            prev = curr;
+            curr = curr.next;
+        }
+ 
+        if (curr == null)
+            return;
+ 
+        prev.next = curr.next;
+    }
 	
 	//prints the entire list
 	public void printList() {
@@ -85,6 +106,7 @@ public class LinkedList {
 		ll.addNode(3);
 		ll.deleteLast();
 		ll.deleteFirst();
+		ll.deleteValue(1);
 		
 		ll.printList();
 	}
