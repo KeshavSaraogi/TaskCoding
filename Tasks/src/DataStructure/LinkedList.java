@@ -2,7 +2,7 @@ package DataStructure;
 
 public class LinkedList {
 	
-	class Node{
+	static class Node{
 		int data;
 		Node next;
 	
@@ -15,6 +15,7 @@ public class LinkedList {
 	public Node head;
 	public Node tail;
 	
+	//adds at the end of the list
 	public void addNode(int data) {
 		Node newNode = new Node(data);
 		
@@ -28,6 +29,23 @@ public class LinkedList {
 		}
 	}
 	
+	//deletes the last node of the list
+	public Node deleteLast() {
+		if (head == null) {
+			return null;
+		}
+		if (head.next == null) {
+			return null;
+		}
+		Node curr = head;
+		while (curr.next.next != null) {
+			curr = curr.next;
+		}
+		curr.next = null;
+		return curr;
+	}
+	
+	//prints the entire list
 	public void printList() {
 		Node curr = this.head;
 		if (curr == null) {
@@ -50,6 +68,8 @@ public class LinkedList {
 		ll.addNode(1);
 		ll.addNode(2);
 		ll.addNode(3);
+		ll.deleteLast();
+		
 		ll.printList();
 	}
 
