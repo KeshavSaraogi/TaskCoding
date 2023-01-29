@@ -45,6 +45,21 @@ public class LinkedList {
 		return curr;
 	}
 	
+	public Node deleteFirst() {
+		if (head == null) {
+			return null;
+		}
+		
+		if (head.next == null) {
+			return null;
+		}
+		
+		Node curr = head;
+		head = head.next;
+		
+		return head;
+	}
+	
 	//prints the entire list
 	public void printList() {
 		Node curr = this.head;
@@ -69,6 +84,7 @@ public class LinkedList {
 		ll.addNode(2);
 		ll.addNode(3);
 		ll.deleteLast();
+		ll.deleteFirst();
 		
 		ll.printList();
 	}
